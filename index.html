@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8f2" />
+    <meta
+      name="description"
+      content="Meet JC Tapire — a curious student, aspiring business professional, and developer. Explore skills, projects, activities, and ways to connect."
+    />
+    <title>JC Tapire — Personal Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700;750&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="content.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <!-- Shared, local SVG icons. No icon library or network request required. -->
+    <svg
+      class="icon-sprite"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M7 7h10v10" />
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <path d="M4 12h16m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24">
+        <path d="M12 4v16m-6-6 6 6 6-6" />
+      </symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24">
+        <path
+          d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Zm7-2v4m-2-2h4"
+        />
+      </symbol>
+      <symbol id="i-code" viewBox="0 0 24 24">
+        <path d="m7 7-5 5 5 5m10-10 5 5-5 5m-4-14-2 18" />
+      </symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24">
+        <path d="M4 3v18h17M8 16v-5m5 5V7m5 9v-7" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <path
+          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m20 0v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"
+        />
+        <circle cx="9" cy="7" r="4" />
+      </symbol>
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path
+          d="M12 6v15M3 3c4-1 7 0 9 3 2-3 5-4 9-3v15c-4-1-7 0-9 3-2-3-5-4-9-3V3Z"
+        />
+      </symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24">
+        <rect x="3" y="7" width="18" height="14" rx="2" />
+        <path d="M8 7V3h8v4M3 12a24 24 0 0 0 18 0M12 11v4" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 6 9 7 9-7" />
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="16" rx="2" />
+        <path d="M16 3v4M8 3v4M3 11h18m-13 5h.01M12 16h.01M16 16h.01" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M6 18 18 6" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a19 19 0 0 1 0 18 19 19 0 0 1 0-18Z" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M4 9v12M4 4v.01M10 21V9h5v2c1-3 6-3 6 2v8M10 14c0-5 5-5 5 0v7"
+        />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          d="M9 19c-4 1-4-2-6-2m15 5v-4a3.5 3.5 0 0 0-1-3c3-.3 6-1.5 6-6a4.6 4.6 0 0 0-1.3-3.2A4.3 4.3 0 0 0 21.6 3S20.5 2.7 18 4a12 12 0 0 0-6 0C9.5 2.7 8.4 3 8.4 3a4.3 4.3 0 0 0-.1 2.8A4.6 4.6 0 0 0 7 9c0 4.5 3 5.7 6 6a3.5 3.5 0 0 0-1 3v4"
+          transform="translate(-2 0)"
+        />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path
+          d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
+        />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="13" height="13" rx="2" />
+        <path d="M16 8V3H3v13h5" />
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" />
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home" aria-label="JC Tapire home"
+          ><span class="brand-mark">jc<span>.</span></span
+          ><span class="brand-name" data-name>JC Tapire</span></a
+        >
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#home" class="nav-link active" aria-current="location"
+            >Home</a
+          >
+          <a href="#about" class="nav-link">About Me</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#events" class="nav-link">Events</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <a class="nav-cta" href="#contact"
+          >Let's talk
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-arrow-up-right" /></svg
+        ></a>
+        <button
+          class="menu-toggle icon-button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
+      </div>
+      <nav
+        class="mobile-nav"
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        <a href="#home" class="nav-link active" aria-current="location">Home</a
+        ><a href="#about" class="nav-link">About Me</a
+        ><a href="#skills" class="nav-link">Skills</a
+        ><a href="#events" class="nav-link">Events</a
+        ><a href="#projects" class="nav-link">Projects</a
+        ><a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section
+        class="hero section-anchor"
+        id="home"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow hero-enter">
+              <span class="status-dot"></span> Open to learning & new
+              opportunities
+            </div>
+            <h1 id="hero-title" class="hero-enter">
+              A curious mind.<br />A purposeful<br /><em>future.</em
+              ><span class="title-spark" aria-hidden="true">✳</span>
+            </h1>
+            <p class="hero-intro hero-enter">
+              Hi, I'm <strong data-name>JC Tapire</strong>. A student with a
+              business mindset, a love for building things, and a belief that
+              the best way to learn is to create.
+            </p>
+            <p class="hero-role hero-enter">
+              Student <span> / </span> Aspiring Business Professional
+              <span> / </span> Developer
+            </p>
+            <div class="hero-actions hero-enter">
+              <a class="button button-primary" href="#projects"
+                >View My Projects
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-up-right" /></svg
+              ></a>
+              <a class="button button-secondary" href="#contact"
+                >Contact Me
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow-right" /></svg
+              ></a>
+            </div>
+            <div class="hero-socials hero-enter">
+              <span>Find me on</span>
+              <div class="social-links" data-socials></div>
+              <span class="small-divider"></span
+              ><a href="#about" class="text-link"
+                >A little about me
+                <svg class="icon icon-small" aria-hidden="true">
+                  <use href="#i-arrow-down" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="hero-visual hero-enter">
+            <div class="portrait-decoration" aria-hidden="true"></div>
+            <div class="portrait-frame">
+              <img
+                src="assets/profile.jpg"
+                data-profile-image
+                alt="Stock portrait placeholder; replace with your own photo"
+                width="620"
+                height="760"
+                fetchpriority="high"
+              />
+              <div class="portrait-caption">
+                <span class="caption-dot"></span
+                ><span>Dream big. Start small. Keep going.</span>
+              </div>
+            </div>
+            <div class="floating-note">
+              <span class="note-icon"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-sparkles" /></svg
+              ></span>
+              <div>
+                <strong>Always a work in progress.</strong
+                ><span>And that's a good thing.</span>
+              </div>
+            </div>
+            <span class="portrait-label" aria-hidden="true"
+              >LEARN. BUILD. GROW.</span
+            >
+            <svg
+              class="portrait-spark"
+              viewBox="0 0 80 80"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M40 0v80M0 40h80M12 12l56 56M12 68l56-56"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="container hero-bottom">
+          <a href="#about" class="scroll-cue"
+            ><span class="scroll-circle"
+              ><svg class="icon icon-small" aria-hidden="true">
+                <use href="#i-arrow-down" /></svg
+            ></span>
+            Scroll to explore</a
+          ><span class="hero-bottom-note"
+            >A little ambition. A lot of possibility.</span
+          ><span class="hero-index"
+            >PORTFOLIO / <span data-year>2026</span></span
+          >
+        </div>
+      </section>
+
+      <section
+        class="section section-anchor about-section"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">
+              <span class="section-number">01 /</span> THE PERSON BEHIND THE
+              WORK
+            </p>
+            <h2 id="about-title">A little <em>about me.</em></h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-image-wrap reveal">
+              <img
+                class="about-image"
+                src="assets/workspace.jpg"
+                alt="Sample study workspace with a laptop and notebook"
+                width="720"
+                height="840"
+                loading="lazy"
+              />
+              <div class="image-caption">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-book" />
+                </svg>
+                <div>
+                  <strong>Learning is a lifelong project.</strong
+                  ><span>One idea, one experience at a time.</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-content reveal">
+              <p class="about-lead">
+                Business-minded.<br />People-first. <em>Always curious.</em>
+              </p>
+              <p>
+                I’m <span data-name>JC Tapire</span>, a student exploring the
+                space where business, creativity, and technology meet. I enjoy
+                making complex ideas simpler and turning a blank page into
+                something useful.
+              </p>
+              <p>
+                Whether I'm collaborating on a school project, learning a new
+                tool, or participating in a community activity, I bring
+                curiosity, care, and a willingness to improve. My goal is to
+                build a career where thoughtful work makes a positive
+                difference.
+              </p>
+              <div class="about-details">
+                <div>
+                  <span class="detail-icon"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#i-book" /></svg
+                  ></span>
+                  <div>
+                    <span class="detail-label">EDUCATION</span
+                    ><strong data-education>Your degree or course</strong
+                    ><span data-school>Your school or university</span>
+                  </div>
+                </div>
+                <div>
+                  <span class="detail-icon"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#i-pin" /></svg
+                  ></span>
+                  <div>
+                    <span class="detail-label">BASED IN</span
+                    ><strong data-location>Your city, country</strong
+                    ><span>Open to meaningful connections</span>
+                  </div>
+                </div>
+              </div>
+              <div class="interests">
+                <span>Outside the classroom</span>
+                <div class="tag-list">
+                  <span class="tag">Technology</span
+                  ><span class="tag">Entrepreneurship</span
+                  ><span class="tag">Design</span
+                  ><span class="tag">Community</span>
+                </div>
+              </div>
+              <p class="placeholder-note">
+                A starting point for your story. Replace these sample profile
+                details with your own.
+              </p>
+            </div>
+          </div>
+          <div class="values-strip reveal">
+            <div>
+              <span class="value-number">01</span>
+              <div>
+                <strong>Stay curious.</strong>
+                <p>There's always something new to learn.</p>
+              </div>
+            </div>
+            <div>
+              <span class="value-number">02</span>
+              <div>
+                <strong>Build with purpose.</strong>
+                <p>Good work starts with a good why.</p>
+              </div>
+            </div>
+            <div>
+              <span class="value-number">03</span>
+              <div>
+                <strong>Grow together.</strong>
+                <p>Better ideas happen with good people.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-anchor skills-section"
+        id="skills"
+        aria-labelledby="skills-title"
+      >
+        <div class="container">
+          <div class="section-heading heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="section-number">02 /</span> MY TOOLKIT
+              </p>
+              <h2 id="skills-title">
+                Skills that make<br /><em>things happen.</em>
+              </h2>
+            </div>
+            <p>
+              A growing mix of practical tools, business knowledge, and people
+              skills. Always learning. Always adding to the toolkit.
+            </p>
+          </div>
+          <div class="skills-grid" id="skills-grid"></div>
+          <p class="section-footnote reveal">
+            <svg class="icon icon-small" aria-hidden="true">
+              <use href="#i-sparkles" />
+            </svg>
+            Not an expert in everything. A committed learner in all of it.
+            <span>Sample skills — customize your toolkit.</span>
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section section-anchor events-section"
+        id="events"
+        aria-labelledby="events-title"
+      >
+        <div class="container">
+          <div class="section-heading heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="section-number">03 /</span> BEYOND THE CLASSROOM
+              </p>
+              <h2 id="events-title">
+                Experiences that<br /><em>shape me.</em>
+              </h2>
+            </div>
+            <p>
+              Learning doesn't stop at a desk. A space for the events,
+              communities, and moments that help me grow.
+            </p>
+          </div>
+          <div class="events-grid" id="events-grid"></div>
+          <p class="section-footnote">
+            Example activities and stock photos. Replace with the experiences
+            you've actually participated in.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section section-anchor projects-section"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <div class="container">
+          <div class="section-heading heading-split reveal">
+            <div>
+              <p class="eyebrow">
+                <span class="section-number">04 /</span> SELECTED WORK
+              </p>
+              <h2 id="projects-title">Ideas, brought<br /><em>to life.</em></h2>
+            </div>
+            <p>
+              A few example projects to show what's possible. Thoughtful
+              concepts, practical solutions, and room to grow.
+            </p>
+          </div>
+          <div class="project-toolbar reveal">
+            <div
+              class="project-filters"
+              role="group"
+              aria-label="Filter projects"
+            >
+              <button
+                class="filter-button active"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                All projects <span>04</span></button
+              ><button
+                class="filter-button"
+                data-filter="Development"
+                aria-pressed="false"
+              >
+                Development</button
+              ><button
+                class="filter-button"
+                data-filter="Design"
+                aria-pressed="false"
+              >
+                Design</button
+              ><button
+                class="filter-button"
+                data-filter="Business"
+                aria-pressed="false"
+              >
+                Business
+              </button>
+            </div>
+            <span
+              class="project-counter"
+              id="project-counter"
+              role="status"
+              aria-live="polite"
+              >4 projects</span
+            >
+          </div>
+          <div class="projects-grid" id="projects-grid"></div>
+          <div class="project-bottom reveal">
+            <p>Have an idea worth exploring?</p>
+            <a href="#contact" class="text-link"
+              >Let's build something together
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-arrow-up-right" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-anchor contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="container contact-grid">
+          <div class="contact-content reveal">
+            <p class="eyebrow">
+              <span class="section-number">05 /</span> LET'S CONNECT
+            </p>
+            <h2 id="contact-title">
+              Good things start<br />with a <em>hello.</em>
+            </h2>
+            <p>
+              Have a project in mind, an opportunity to share, or just want to
+              say hi? I'd love to hear from you.
+            </p>
+            <div class="contact-email-card">
+              <span class="detail-icon"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-mail" /></svg
+              ></span>
+              <div>
+                <span class="detail-label">DROP ME A LINE</span
+                ><a href="mailto:hello@example.com" data-email-link
+                  >hello@example.com</a
+                >
+              </div>
+              <button
+                class="icon-button copy-email"
+                aria-label="Copy email address"
+                title="Copy email address"
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-copy" />
+                </svg>
+              </button>
+            </div>
+            <p class="contact-availability">
+              <span class="status-dot"></span> Open to conversations &
+              collaborations
+            </p>
+            <div class="contact-socials">
+              <span>Elsewhere on the internet</span>
+              <div class="social-links" data-socials></div>
+            </div>
+          </div>
+          <div class="contact-form-wrap reveal">
+            <form id="contact-form" novalidate>
+              <h3>Send a little hello.</h3>
+              <p class="form-intro">A question, an idea, a conversation.</p>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="name"
+                    >Your name <span aria-hidden="true">*</span></label
+                  ><input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Alex Taylor"
+                    autocomplete="name"
+                    required
+                    maxlength="100"
+                    aria-describedby="name-error"
+                  /><span class="field-error" id="name-error"></span>
+                </div>
+                <div class="form-field">
+                  <label for="email"
+                    >Email address <span aria-hidden="true">*</span></label
+                  ><input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="alex@example.com"
+                    autocomplete="email"
+                    required
+                    maxlength="254"
+                    aria-describedby="email-error"
+                  /><span class="field-error" id="email-error"></span>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="message"
+                  >Your message <span aria-hidden="true">*</span></label
+                ><textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me what's on your mind…"
+                  required
+                  minlength="10"
+                  maxlength="5000"
+                  aria-describedby="message-error"
+                ></textarea
+                ><span class="field-error" id="message-error"></span>
+              </div>
+              <div class="honeypot" aria-hidden="true">
+                <label for="website">Leave this empty</label
+                ><input
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <button
+                class="button button-primary send-button"
+                type="submit"
+                disabled
+              >
+                <span>Send Message</span
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-send" />
+                </svg>
+              </button>
+              <p class="form-note" id="form-note">
+                Demo form: configure your contact details to enable messaging.
+              </p>
+              <p
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+            </form>
+          </div>
+        </div>
+      </section>
+      <noscript>
+        <style>
+          .menu-toggle {
+            display: none;
+          }
+          .desktop-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+          }
+          .nav-wrap {
+            height: auto;
+            min-height: 82px;
+            padding-block: 16px;
+            flex-wrap: wrap;
+          }
+        </style>
+        <div class="container no-script">
+          Enable JavaScript to see the editable skill, event, and project cards.
+          You can still get in touch by email.
+        </div>
+      </noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <a class="brand" href="#home"
+            ><span class="brand-mark">jc<span>.</span></span
+            ><span class="brand-name" data-name>JC Tapire</span></a
+          >
+          <p>Learning today. Building for tomorrow.</p>
+          <a href="#home" class="back-to-top"
+            >Back to top
+            <svg class="icon icon-small" aria-hidden="true">
+              <use href="#i-arrow-up-right" /></svg
+          ></a>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © <span data-year>2026</span> <span data-name>JC Tapire</span>. All
+            rights reserved.
+          </p>
+          <nav aria-label="Footer navigation">
+            <a href="#about">About</a><a href="#projects">Projects</a
+            ><a href="#contact">Contact</a>
+          </nav>
+          <div class="social-links" data-socials></div>
+        </div>
+      </div>
+    </footer>
+
+    <dialog
+      class="detail-dialog"
+      id="detail-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <button class="dialog-close icon-button" aria-label="Close details">
+        <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
+      </button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

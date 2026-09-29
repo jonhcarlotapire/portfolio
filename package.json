@@ -1,0 +1,16 @@
+{
+  "name": "jc-tapire-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive personal portfolio built with HTML, CSS, and vanilla JavaScript.",
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "playwright test",
+    "format": "prettier --write index.html styles.css script.js content.js server.cjs playwright.config.cjs tests/*.cjs README.md package.json"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "prettier": "^3.9.9"
+  }
+}
