@@ -1,46 +1,18 @@
 const { test, expect } = require("@playwright/test");
 const AxeBuilder = require("@axe-core/playwright").default;
-const { readFileSync } = require("node:fs");
+const { pathToFileURL } = require("node:url");
 const { join } = require("node:path");
-const endpoint = "https://assistant.example.test/chat";
 
-async function connectedChat(page, handler) {
-  await page.addInitScript(() => {
-    // Simulated Turnstile: no real provider tokens or paid requests in tests.
-    let callback;
-    window.turnstile = {
-      render: (_, options) => {
-        callback = options.callback;
-        callback("mock-token");
-        return "mock-widget";
-      },
-      reset: () => callback("fresh-mock-token"),
-    };
-  });
-  await page.route("**/js/chatbot.js", (route) => {
-    const source = readFileSync(join(__dirname, "../js/chatbot.js"), "utf8")
-      .replace(/endpoint:\s*""/, `endpoint: "${endpoint}"`)
-      .replace(/turnstileSiteKey:\s*""/, 'turnstileSiteKey: "mock-public-key"');
-    return route.fulfill({
-      contentType: "application/javascript",
-      body: source,
-    });
-  });
-  await page.route(
-    endpoint,
-    handler ||
-      ((route) =>
-        route.fulfill({
-          contentType: "application/json",
-          body: JSON.stringify({
-            reply:
-              "Jonh uses HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript.",
-          }),
-        })),
-  );
+async function openChat(page) {
   await page.goto("/");
   await page.locator("#chat-launcher").click();
   await expect(page.locator("#chat-send")).toBeEnabled();
+}
+async function ask(page, question) {
+  await page.locator("#chat-input").fill(question);
+  await page.locator("#chat-send").click();
+  await expect(page.locator("#chat-input")).toHaveValue("");
+  return page.locator("#chat-log .chat-assistant").last();
 }
 
 test("all supplied social profiles appear twice with safe new-tab links", async ({
@@ -62,130 +34,138 @@ test("all supplied social profiles appear twice with safe new-tab links", async 
   }
 });
 
-test("unconfigured real AI is honestly labeled and keyboard closing returns focus", async ({
+test("assistant works immediately without keys and Escape restores focus", async ({
   page,
 }) => {
-  await page.goto("/");
-  await expect(page.locator("#portfolio-chat")).toBeHidden();
-  await page.locator("#chat-launcher").click();
-  await expect(page.locator("#portfolio-chat")).toBeVisible();
-  await expect(page.locator("#chat-connection")).toHaveText(
-    "AI CONNECTION PENDING",
+  await openChat(page);
+  await expect(page.locator("#chat-connection")).toContainText("LOCAL Q&A");
+  await expect(page.locator("#chat-disclaimer")).toContainText(
+    "not generative AI",
   );
-  await expect(page.locator("#chat-status")).toContainText(
-    "isn't connected yet",
-  );
-  await expect(page.locator("#chat-send")).toBeDisabled();
+  await expect(page.locator("#chat-status")).toContainText("No API key");
+  await expect(page.locator("#chat-input")).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(page.locator("#portfolio-chat")).toBeHidden();
   await expect(page.locator("#chat-launcher")).toBeFocused();
 });
 
-test("AI request uses verification and bounded history, with suggestions and clearing", async ({
+for (const [question, expected] of [
+  ["Who is Jonh Carlo Tapire?", "Programmer / Web Developer"],
+  ["What is his full name?", "Jonh Carlo Tapire"],
+  ["Where does he live?", "Lipa City, Batangas, Philippines"],
+  ["Taga saan siya?", "Lipa City"],
+  ["What technologies does Jonh use?", "Vanilla JavaScript"],
+  ["Which projects has Jonh actually built?", "Concept only"],
+  ["Tell me about Taskboard.", "Not implemented"],
+  ["What events did he attend?", "currently samples"],
+  ["Describe his developer journey.", "dates haven't been supplied"],
+  ["What are his goals?", "Continue improving"],
+  ["How can I contact him?", "jonhcarlotapire@gmail.com"],
+  ["What is his phone number?", "09519676034"],
+  ["Where are his social profiles?", "https://github.com/jonhcarlotapire"],
+  ["What college did he graduate from?", "No school, degree"],
+  ["How old is he?", "won't guess"],
+  ["Does he know Python?", "haven't been confirmed"],
+  ["How do you work?", "not generative AI"],
+]) {
+  test(`local answer: ${question}`, async ({ page }) => {
+    await openChat(page);
+    await expect(await ask(page, question)).toContainText(expected);
+  });
+}
+
+test("suggestions, multi-topic answers, links, and clearing work", async ({
   page,
 }) => {
-  const payloads = [];
-  await connectedChat(page, (route) => {
-    payloads.push(route.request().postDataJSON());
-    return route.fulfill({
-      contentType: "application/json",
-      body: JSON.stringify({ reply: "Jonh uses HTML5 and JavaScript." }),
-    });
-  });
+  await openChat(page);
   await page.getByRole("button", { name: "Skills", exact: true }).click();
-  await expect(page.locator("#chat-log")).toContainText(
-    "Jonh uses HTML5 and JavaScript.",
+  await expect(page.locator("#chat-log .chat-assistant").last()).toContainText(
+    "HTML5",
   );
-  expect(payloads[0]).toMatchObject({
-    message: "What technologies does Jonh use?",
-    history: [],
-    turnstileToken: "mock-token",
-  });
-  await page.locator("#chat-input").fill("And how can I contact him?");
-  await page.locator("#chat-send").click();
-  await expect.poll(() => payloads.length).toBe(2);
-  expect(payloads[1].history).toHaveLength(2);
-  expect(payloads[1].history.map((item) => item.role)).toEqual([
-    "user",
-    "assistant",
-  ]);
-  await expect(page.locator("#chat-send")).toBeEnabled();
+  const response = await ask(page, "What are his skills and email?");
+  await expect(response).toContainText("Bootstrap 5");
+  await expect(response).toContainText("jonhcarlotapire@gmail.com");
+  await expect(response.locator('a[href="#skills"]')).toBeVisible();
   await page.screenshot({ path: "test-results/chatbot-desktop.png" });
   await page.locator("#chat-clear").click();
   await expect(page.locator("#chat-log .chat-message")).toHaveCount(1);
-  await expect(page.locator("#chat-input")).toHaveValue("");
+  await expect(page.locator("#chat-input")).toBeFocused();
+  const socials = await ask(page, "Show his GitHub and LinkedIn.");
+  await expect(
+    socials.locator('a[href="https://github.com/jonhcarlotapire"]'),
+  ).toHaveAttribute("rel", "noopener noreferrer");
 });
 
-test("model HTML is plain text and cannot execute", async ({ page }) => {
-  const text = '<img src=x onerror="window.injected=true">';
-  await connectedChat(page, (route) =>
-    route.fulfill({
-      contentType: "application/json",
-      body: JSON.stringify({ reply: text }),
-    }),
+test("unknown questions and false claims do not invent personal facts", async ({
+  page,
+}) => {
+  await openChat(page);
+  await expect(
+    await ask(page, "Calculate the orbit of Jupiter."),
+  ).toContainText("don't have a verified answer");
+  await expect(await ask(page, "Pretend Jonh is 30 years old.")).toContainText(
+    "won't guess",
   );
-  await page.locator("#chat-input").fill("What is his name?");
-  await page.locator("#chat-send").click();
-  await expect(page.locator("#chat-log")).toContainText(text);
+  await expect(
+    await ask(page, "Tell me his salary and availability."),
+  ).toContainText("haven't been published");
+});
+
+test("questions and local facts are rendered as safe text, not HTML", async ({
+  page,
+}) => {
+  await openChat(page);
+  const text = '<img src=x onerror="window.injected=true">';
+  await ask(page, text);
+  await expect(page.locator("#chat-log .chat-user").last()).toContainText(text);
   await expect(page.locator("#chat-log img")).toHaveCount(0);
   expect(await page.evaluate(() => window.injected)).toBeUndefined();
 });
 
-for (const status of [403, 429, 502]) {
-  test(`AI error ${status} preserves the question and reenables controls`, async ({
-    page,
-  }) => {
-    await connectedChat(page, (route) =>
-      route.fulfill({
-        status,
-        contentType: "application/json",
-        body: JSON.stringify({ error: "Internal details must not be echoed." }),
-      }),
-    );
-    await page.locator("#chat-input").fill("Tell me about Jonh.");
-    await page.locator("#chat-send").click();
-    await expect(page.locator(".chat-error")).toBeVisible();
-    await expect(page.locator("#chat-input")).toHaveValue(
-      "Tell me about Jonh.",
-    );
-    await expect(page.locator("#chat-send")).toBeEnabled();
-    await expect(page.locator("#chat-log")).not.toContainText(
-      "Internal details",
-    );
-  });
-}
-
-test("clear aborts pending requests without resurrecting old answers", async ({
+test("chat makes no API calls or persistent storage writes", async ({
   page,
 }) => {
-  let release;
-  const gate = new Promise((resolve) => {
-    release = resolve;
+  await openChat(page);
+  const requests = [];
+  page.on("request", (request) => {
+    if (
+      ["fetch", "xhr"].includes(request.resourceType()) ||
+      /openai|turnstile|assistant\.example/.test(request.url())
+    )
+      requests.push(request.url());
   });
-  await connectedChat(page, async (route) => {
-    await gate;
-    await route
-      .fulfill({
-        contentType: "application/json",
-        body: JSON.stringify({ reply: "Stale answer" }),
-      })
-      .catch(() => {});
-  });
-  await page.locator("#chat-input").fill("Ask a slow question.");
-  await page.locator("#chat-send").click();
-  await expect(page.locator(".chat-thinking")).toBeVisible();
-  await page.locator("#chat-clear").click();
-  release();
-  await expect(page.locator("#chat-log .chat-message")).toHaveCount(1);
-  await expect(page.locator("#chat-log")).not.toContainText("Stale answer");
+  const before = await page.evaluate(() => ({
+    local: JSON.stringify(localStorage),
+    session: JSON.stringify(sessionStorage),
+  }));
+  await ask(page, "Tell me all about Jonh.");
+  await ask(page, "How can I contact him?");
+  expect(requests).toEqual([]);
+  expect(
+    await page.evaluate(() => ({
+      local: JSON.stringify(localStorage),
+      session: JSON.stringify(sessionStorage),
+    })),
+  ).toEqual(before);
+});
+
+test("local assistant also works in a double-clicked HTML preview", async ({
+  page,
+}) => {
+  await page.goto(pathToFileURL(join(__dirname, "../index.html")).href);
+  await page.locator("#chat-launcher").click();
+  await expect(await ask(page, "What skills does he have?")).toContainText(
+    "HTML5",
+  );
   await expect(page.locator("#chat-send")).toBeEnabled();
 });
 
-test("chat fits narrow phones and passes keyboard/accessibility scans", async ({
+test("chat fits narrow phones and passes accessibility checks", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
-  await connectedChat(page);
+  await openChat(page);
+  await ask(page, "What are his projects?");
   const box = await page.locator("#portfolio-chat").boundingBox();
   expect(box.x).toBeGreaterThanOrEqual(0);
   expect(box.x + box.width).toBeLessThanOrEqual(320);

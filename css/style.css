@@ -1517,7 +1517,7 @@ main:focus {
   opacity: 1;
   transform: none;
 }
-/* Non-modal AI chat: matches the portfolio, with its own bounded scrolling area. */
+/* Local portfolio Q&A: its own bounded scrolling area, no external chat service. */
 .chat-launcher {
   position: fixed;
   right: 24px;
@@ -1547,7 +1547,7 @@ main:focus {
   color: var(--primary-color);
   font-size: 17px;
 }
-.chat-ai-badge {
+.chat-mode-badge {
   padding: 2px 5px;
   font-size: 8px;
   background: #9476ff20;
@@ -1666,15 +1666,22 @@ main:focus {
 .chat-user .chat-message-label {
   color: #98e3ef;
 }
-.chat-error {
-  background: #392630;
-  border-color: #c76e8230;
+.chat-message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
 }
-.chat-error p {
-  color: #f0c3ce;
+.chat-message-actions a {
+  padding: 5px 8px;
+  border: 1px solid #55d9ee40;
+  border-radius: 5px;
+  color: #9ee8f3;
+  font-size: 10px;
+  overflow-wrap: anywhere;
 }
-.chat-thinking p {
-  color: var(--muted-text);
+.chat-message-actions a:hover {
+  background: #55d9ee0a;
 }
 .chat-suggestions {
   display: flex;
@@ -1704,15 +1711,6 @@ main:focus {
   color: #b5c4dc;
   font-size: 10px;
   line-height: 1.65;
-}
-.chat-verification {
-  margin-inline: 16px;
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.chat-verification:not(:empty) {
-  margin-bottom: 10px;
 }
 .chat-form {
   display: flex;

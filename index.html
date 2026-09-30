@@ -1393,13 +1393,14 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
       class="chat-launcher"
       id="chat-launcher"
       type="button"
-      aria-label="Ask Jonh's AI portfolio assistant"
+      aria-label="Ask Jonh's portfolio assistant"
       aria-controls="portfolio-chat"
       aria-expanded="false"
       hidden
     >
       <i class="bi bi-chat-square-text" aria-hidden="true"></i
-      ><span>Ask about me</span><span class="chat-ai-badge mono">AI</span>
+      ><span>Ask about me</span
+      ><span class="chat-mode-badge mono">Q&amp;A</span>
     </button>
     <dialog
       class="portfolio-chat"
@@ -1412,8 +1413,8 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
           ><i class="bi bi-stars" aria-hidden="true"></i
         ></span>
         <div>
-          <h2 id="chat-title">Jonh's AI assistant</h2>
-          <p id="chat-connection" class="mono">OPENAI Â· PORTFOLIO Q&amp;A</p>
+          <h2 id="chat-title">Jonh's portfolio assistant</h2>
+          <p id="chat-connection" class="mono">LOCAL Q&amp;A Â· NO API KEY</p>
         </div>
         <button
           type="button"
@@ -1472,12 +1473,6 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
         role="status"
         aria-live="polite"
       ></div>
-      <div
-        id="chat-verification"
-        class="chat-verification"
-        role="group"
-        aria-label="Anti-bot verification"
-      ></div>
       <form class="chat-form" id="chat-form">
         <label class="visually-hidden" for="chat-input"
           >Ask a question about Jonh</label
@@ -1495,8 +1490,9 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
         </button>
       </form>
       <p class="chat-disclaimer" id="chat-disclaimer">
-        AI can make mistakes. Only published portfolio facts are provided.
-        Messages go to Cloudflare and OpenAI; don't share private information.
+        Local, scripted Q&amp;Aâ€”not generative AI. Answers use published
+        portfolio details. Chat stays in this tab and isn't sent to a chat
+        service.
         <a href="mailto:jonhcarlotapire@gmail.com">Contact Jonh</a> to confirm
         details.
       </p>

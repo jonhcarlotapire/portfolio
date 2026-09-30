@@ -12,6 +12,7 @@ Open `index.html` in a browser for a visual preview, or serve this folder with a
 index.html
 css/style.css
 js/script.js
+js/chatbot.js          Instant, local portfolio Q&A
 images/profile/avatar.svg
 images/projects/       Original illustrative project covers
 images/events/         Original illustrative event gallery covers
@@ -49,11 +50,15 @@ The integration checks both HTTP status and FormSubmit's JSON `success` value. I
 
 Without JavaScript, the form uses a standard POST to FormSubmit and may show its verification screen. FormSubmit's normal anti-spam protections are not disabled. Never put private keys or a Gmail password in `js/script.js`.
 
-## AI portfolio chatbot
+## Key-free portfolio assistant
 
-The floating **Ask about me** panel supports a real OpenAI chatbot through a secure plain-JavaScript Cloudflare Worker. It never exposes an API key in the browser. Answers are grounded in a curated profile, with missing personal facts and sample projects clearly identified.
+The floating **Ask about me** panel is an instant, local, scripted Q&A assistant—not generative AI. It needs **no private key, account, backend, model download, or deployment configuration**. It works directly from the static website, including a `file://` preview. The previous OpenAI/Cloudflare integration has been removed.
 
-**Deployment and keys are still required:** the widget displays a connection-pending message until a Worker endpoint and public Turnstile sitekey are configured. Follow **[`worker/README.md`](worker/README.md)**. Do not put private keys in this repository. The integration includes server-side anti-bot verification, rate limits, timeouts, bounded conversation history, safe text rendering, and a privacy notice.
+The assistant answers about Jonh's supplied identity, role, location, skills, project statuses, event placeholders, developer journey, interests, goals, social profiles, and contact details. Missing personal details, education, employment history, rates, and availability are explicitly marked as unprovided rather than invented. It recognizes common English and some Filipino question keywords, supports multiple topics, and supplies safe links to relevant sections or social profiles. Because it is scripted, arbitrary questions and complex phrasing may not match; it suggests supported topics instead of pretending to understand everything.
+
+Update the public `JCT_PORTFOLIO` object and project/event records in `js/script.js` to keep answers accurate. Add question aliases or topics in `js/chatbot.js` if needed. The timeline is read from `index.html`. Sync education and other personal facts manually when you update their displayed text.
+
+Chat messages stay in page memory only: no API calls, chat-service requests, cookies, analytics, or localStorage are added. Clear chat or reload the page to remove the local transcript. Clicking social links opens their real websites; using the separate contact form still submits through FormSubmit.
 
 ## Accessibility and motion
 
@@ -67,4 +72,4 @@ The floating **Ask about me** panel supports a real OpenAI chatbot through a sec
 
 ## Checks
 
-`tests/redesign.spec.cjs` covers the website, `tests/chatbot.spec.cjs` covers social links and the AI interface, and `tests/worker.spec.cjs` covers the secure Worker. The pre-existing `tests/portfolio.spec.cjs` targets the original website and is retained as reference, not included in the current test run. The tests use the optional Playwright development installation; it is not needed to publish or run the website. Run `npx playwright test` with the existing development tools and Python installed. Checks cover nine viewport widths, local assets, navigation, filters, keyboard modals, galleries, contact validation, mocked provider responses, reduced motion, touch, JavaScript-disabled content, chat verification and errors, safe text rendering, Worker input limits and secret handling, and axe WCAG scans. No real email or paid AI request is sent by the tests.
+`tests/redesign.spec.cjs` covers the website and `tests/chatbot.spec.cjs` covers social links and local Q&A. The pre-existing `tests/portfolio.spec.cjs` targets the original website and is retained as reference, not included in the current test run. The tests use the optional Playwright development installation; it is not needed to publish or run the website. Run `npx playwright test` with the existing development tools and Python installed. Checks cover nine viewport widths, local assets, navigation, filters, keyboard modals, galleries, contact validation, mocked form-service responses, reduced motion, touch, JavaScript-disabled content, factual Q&A, unknown details, no external chat requests, safe text rendering, and axe WCAG scans. No real email is sent by the tests.

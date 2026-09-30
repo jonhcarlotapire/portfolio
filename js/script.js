@@ -208,6 +208,32 @@
       ],
     },
   };
+  // Public facts shared with the local Q&A widget. Update records above once;
+  // project/event answers then stay synchronized without a backend or API key.
+  window.JCT_PORTFOLIO = Object.freeze({
+    name: "Jonh Carlo Tapire",
+    role: "Programmer / Web Developer",
+    location: "Lipa City, Batangas, Philippines",
+    email: settings.email,
+    phone: "09519676034",
+    introduction:
+      "A passionate programmer and web developer who enjoys creating modern, responsive, and user-friendly websites using HTML, CSS, Bootstrap, and JavaScript.",
+    skills: ["HTML5", "CSS3", "Bootstrap 5", "Vanilla JavaScript"],
+    interests:
+      "Front-end development, responsive layouts, interactive interfaces, problem solving, and continuous learning.",
+    goal: "Continue improving web development and programming skills and grow toward meaningful professional opportunities.",
+    education: "Education details have not been provided.",
+    employment:
+      "Employers, professional experience dates, clients, and certifications have not been provided.",
+    projects: Object.values(projects),
+    events: Object.values(events),
+    socials: settings.socials,
+    journey: $$(".timeline-item").map((item) => ({
+      title: $("h3", item).textContent,
+      description: $("p", item).textContent,
+    })),
+  });
+
   const badges = (items) =>
     `<div class="technology-badges">${items.map((item) => `<span class="badge">${escapeHTML(item)}</span>`).join("")}</div>`;
   const list = (items) =>
