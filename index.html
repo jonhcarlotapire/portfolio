@@ -2,378 +2,375 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f7f8f2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b14" />
     <meta
       name="description"
-      content="Meet JC Tapire — a curious student, aspiring business professional, and developer. Explore skills, projects, activities, and ways to connect."
+      content="Personal programmer portfolio of Jonh Carlo Tapire showcasing web development projects, programming skills, events, and experiences using HTML, CSS, Bootstrap, and JavaScript."
     />
-    <title>JC Tapire — Personal Portfolio</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jonh Carlo Tapire" />
+    <meta
+      property="og:description"
+      content="Building modern, responsive, and user-friendly websites. Explore my skills, projects, and developer journey."
+    />
+    <meta property="og:image" content="images/projects/portfolio.svg" />
+    <meta
+      property="og:image:alt"
+      content="Preview illustration of Jonh Carlo Tapire's developer portfolio"
+    />
+    <meta name="twitter:card" content="summary" />
+    <title>Jonh Carlo Tapire</title>
+    <link rel="icon" type="image/svg+xml" href="assets/jct-favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700;750&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="content.js" defer></script>
-    <script src="script.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="js/script.js" defer></script>
   </head>
-  <body>
+  <body data-bs-theme="dark">
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <!-- Shared, local SVG icons. No icon library or network request required. -->
-    <svg
-      class="icon-sprite"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
-        <path d="M7 17 17 7M7 7h10v10" />
-      </symbol>
-      <symbol id="i-arrow-right" viewBox="0 0 24 24">
-        <path d="M4 12h16m-6-6 6 6-6 6" />
-      </symbol>
-      <symbol id="i-arrow-down" viewBox="0 0 24 24">
-        <path d="M12 4v16m-6-6 6 6 6-6" />
-      </symbol>
-      <symbol id="i-sparkles" viewBox="0 0 24 24">
-        <path
-          d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Zm7-2v4m-2-2h4"
-        />
-      </symbol>
-      <symbol id="i-code" viewBox="0 0 24 24">
-        <path d="m7 7-5 5 5 5m10-10 5 5-5 5m-4-14-2 18" />
-      </symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24">
-        <path d="M4 3v18h17M8 16v-5m5 5V7m5 9v-7" />
-      </symbol>
-      <symbol id="i-users" viewBox="0 0 24 24">
-        <path
-          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2m20 0v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"
-        />
-        <circle cx="9" cy="7" r="4" />
-      </symbol>
-      <symbol id="i-book" viewBox="0 0 24 24">
-        <path
-          d="M12 6v15M3 3c4-1 7 0 9 3 2-3 5-4 9-3v15c-4-1-7 0-9 3-2-3-5-4-9-3V3Z"
-        />
-      </symbol>
-      <symbol id="i-briefcase" viewBox="0 0 24 24">
-        <rect x="3" y="7" width="18" height="14" rx="2" />
-        <path d="M8 7V3h8v4M3 12a24 24 0 0 0 18 0M12 11v4" />
-      </symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24">
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="m3 6 9 7 9-7" />
-      </symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24">
-        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" />
-        <circle cx="12" cy="10" r="2.5" />
-      </symbol>
-      <symbol id="i-calendar" viewBox="0 0 24 24">
-        <rect x="3" y="5" width="18" height="16" rx="2" />
-        <path d="M16 3v4M8 3v4M3 11h18m-13 5h.01M12 16h.01M16 16h.01" />
-      </symbol>
-      <symbol id="i-check" viewBox="0 0 24 24">
-        <path d="m5 12 4 4L19 6" />
-      </symbol>
-      <symbol id="i-close" viewBox="0 0 24 24">
-        <path d="m6 6 12 12M6 18 18 6" />
-      </symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24">
-        <path d="M4 6h16M4 12h16M4 18h16" />
-      </symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18M12 3a19 19 0 0 1 0 18 19 19 0 0 1 0-18Z" />
-      </symbol>
-      <symbol id="i-linkedin" viewBox="0 0 24 24">
-        <path
-          d="M4 9v12M4 4v.01M10 21V9h5v2c1-3 6-3 6 2v8M10 14c0-5 5-5 5 0v7"
-        />
-      </symbol>
-      <symbol id="i-github" viewBox="0 0 24 24">
-        <path
-          d="M9 19c-4 1-4-2-6-2m15 5v-4a3.5 3.5 0 0 0-1-3c3-.3 6-1.5 6-6a4.6 4.6 0 0 0-1.3-3.2A4.3 4.3 0 0 0 21.6 3S20.5 2.7 18 4a12 12 0 0 0-6 0C9.5 2.7 8.4 3 8.4 3a4.3 4.3 0 0 0-.1 2.8A4.6 4.6 0 0 0 7 9c0 4.5 3 5.7 6 6a3.5 3.5 0 0 0-1 3v4"
-          transform="translate(-2 0)"
-        />
-      </symbol>
-      <symbol id="i-heart" viewBox="0 0 24 24">
-        <path
-          d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
-        />
-      </symbol>
-      <symbol id="i-copy" viewBox="0 0 24 24">
-        <rect x="8" y="8" width="13" height="13" rx="2" />
-        <path d="M16 8V3H3v13h5" />
-      </symbol>
-      <symbol id="i-send" viewBox="0 0 24 24">
-        <path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" />
-      </symbol>
-    </svg>
-
-    <header class="site-header" id="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="#home" aria-label="JC Tapire home"
-          ><span class="brand-mark">jc<span>.</span></span
-          ><span class="brand-name" data-name>JC Tapire</span></a
+    <!-- Hidden by default: JavaScript opts in, so the loader never blocks a no-JS visit. -->
+    <div class="loader" id="loader" hidden aria-hidden="true">
+      <div class="loader-content">
+        <span class="brand">&lt;JCT <span>/&gt;</span></span>
+        <p class="mono">
+          Initializing portfolio<span class="ellipsis">...</span>
+        </p>
+        <div class="loader-track"><span></span></div>
+        <small class="mono" id="loader-status"
+          >Loading profile, skills &amp; projects...</small
         >
-        <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#home" class="nav-link active" aria-current="location"
-            >Home</a
-          >
-          <a href="#about" class="nav-link">About Me</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#events" class="nav-link">Events</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-        <a class="nav-cta" href="#contact"
-          >Let's talk
-          <svg class="icon" aria-hidden="true">
-            <use href="#i-arrow-up-right" /></svg
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true">
+      <span id="scroll-progress"></span>
+    </div>
+    <header class="site-header" id="site-header">
+      <nav
+        class="navbar navbar-expand-lg container"
+        aria-label="Main navigation"
+      >
+        <a
+          class="navbar-brand brand"
+          href="#home"
+          aria-label="Jonh Carlo Tapire home"
+          >&lt;JCT<span>/&gt;</span
+          ><span class="brand-dot" aria-hidden="true"></span
         ></a>
         <button
-          class="menu-toggle icon-button"
-          aria-label="Open navigation"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-menu"
+          aria-controls="navbar-menu"
           aria-expanded="false"
-          aria-controls="mobile-nav"
+          aria-label="Toggle navigation"
         >
-          <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          <i class="bi bi-list" aria-hidden="true"></i>
         </button>
-      </div>
-      <nav
-        class="mobile-nav"
-        id="mobile-nav"
-        aria-label="Mobile navigation"
-        hidden
-      >
-        <a href="#home" class="nav-link active" aria-current="location">Home</a
-        ><a href="#about" class="nav-link">About Me</a
-        ><a href="#skills" class="nav-link">Skills</a
-        ><a href="#events" class="nav-link">Events</a
-        ><a href="#projects" class="nav-link">Projects</a
-        ><a href="#contact" class="nav-link">Contact</a>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <ul class="navbar-nav mx-auto gap-lg-2">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home" aria-current="location"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <a class="btn btn-nav" href="mailto:jonhcarlotapire@gmail.com"
+            >Let's talk <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+          ></a>
+        </div>
       </nav>
     </header>
-
+    <noscript
+      ><nav
+        class="noscript-nav container"
+        aria-label="Navigation without JavaScript"
+      >
+        <a href="#home">Home</a><a href="#about">About</a
+        ><a href="#skills">Skills</a><a href="#events">Events</a
+        ><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </nav></noscript
+    >
     <main id="main-content" tabindex="-1">
       <section
         class="hero section-anchor"
         id="home"
         aria-labelledby="hero-title"
       >
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <div class="eyebrow hero-enter">
-              <span class="status-dot"></span> Open to learning & new
-              opportunities
-            </div>
-            <h1 id="hero-title" class="hero-enter">
-              A curious mind.<br />A purposeful<br /><em>future.</em
-              ><span class="title-spark" aria-hidden="true">✳</span>
-            </h1>
-            <p class="hero-intro hero-enter">
-              Hi, I'm <strong data-name>JC Tapire</strong>. A student with a
-              business mindset, a love for building things, and a belief that
-              the best way to learn is to create.
-            </p>
-            <p class="hero-role hero-enter">
-              Student <span> / </span> Aspiring Business Professional
-              <span> / </span> Developer
-            </p>
-            <div class="hero-actions hero-enter">
-              <a class="button button-primary" href="#projects"
-                >View My Projects
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow-up-right" /></svg
-              ></a>
-              <a class="button button-secondary" href="#contact"
-                >Contact Me
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow-right" /></svg
-              ></a>
-            </div>
-            <div class="hero-socials hero-enter">
-              <span>Find me on</span>
-              <div class="social-links" data-socials></div>
-              <span class="small-divider"></span
-              ><a href="#about" class="text-link"
-                >A little about me
-                <svg class="icon icon-small" aria-hidden="true">
-                  <use href="#i-arrow-down" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="hero-visual hero-enter">
-            <div class="portrait-decoration" aria-hidden="true"></div>
-            <div class="portrait-frame">
-              <img
-                src="assets/profile.jpg"
-                data-profile-image
-                alt="Stock portrait placeholder; replace with your own photo"
-                width="620"
-                height="760"
-                fetchpriority="high"
-              />
-              <div class="portrait-caption">
-                <span class="caption-dot"></span
-                ><span>Dream big. Start small. Keep going.</span>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="ambient ambient-one" aria-hidden="true"></div>
+        <div class="ambient ambient-two" aria-hidden="true"></div>
+        <div class="container hero-container">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-7 hero-copy">
+              <div class="eyebrow reveal">
+                <span class="status-dot" aria-hidden="true"></span> IDEAS INTO
+                INTERACTIVE EXPERIENCES
+              </div>
+              <p class="hero-greeting reveal">Hello, I'm</p>
+              <h1 class="reveal" id="hero-title">
+                Jonh Carlo<br /><span class="gradient-text"
+                  >Tapire<span class="name-period">.</span></span
+                >
+              </h1>
+              <p class="hero-role reveal">
+                <span aria-hidden="true"
+                  >I'm a <span id="typed-role">Web Developer</span
+                  ><span class="typing-cursor">|</span></span
+                ><span class="visually-hidden"
+                  >I'm a Programmer and Web Developer, focused on front-end
+                  develop and JavaScript.</span
+                >
+              </p>
+              <p class="hero-description reveal">
+                I am a passionate programmer and web developer who enjoys
+                creating modern, responsive, and user-friendly websites using
+                HTML, CSS, Bootstrap, and JavaScript.
+              </p>
+              <div class="d-flex flex-wrap gap-3 hero-actions reveal">
+                <a class="btn btn-primary" href="#projects"
+                  >View My Projects
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a
+                ><a class="btn btn-outline" href="#contact"
+                  >Contact Me
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div class="hero-meta reveal">
+                <span
+                  ><i class="bi bi-geo-alt" aria-hidden="true"></i> Lipa City,
+                  Philippines</span
+                ><span
+                  ><i class="bi bi-code-slash" aria-hidden="true"></i> Built
+                  with curiosity</span
+                >
               </div>
             </div>
-            <div class="floating-note">
-              <span class="note-icon"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#i-sparkles" /></svg
-              ></span>
-              <div>
-                <strong>Always a work in progress.</strong
-                ><span>And that's a good thing.</span>
+            <div class="col-lg-5 hero-visual reveal">
+              <div class="profile-orbit">
+                <span
+                  class="orbit-symbol orbit-symbol-one mono"
+                  aria-hidden="true"
+                  >&lt;/&gt;</span
+                ><span
+                  class="orbit-symbol orbit-symbol-two mono"
+                  aria-hidden="true"
+                  >{ }</span
+                >
+                <div class="profile-frame">
+                  <img
+                    src="images/profile/owner.jpg"
+                    width="300"
+                    height="300"
+                    alt="JCT monogram placeholder. A personal profile photo has not yet been added."
+                    fetchpriority="high"
+                  />
+                </div>
+                <div class="developer-chip">
+                  <span class="status-dot" aria-hidden="true"></span> POGI LANG
+                </div>
+              </div>
+              <div class="editor glass">
+                <div class="window-bar">
+                  <div class="window-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="mono">developer.js</span
+                  ><i class="bi bi-code-slash" aria-hidden="true"></i>
+                </div>
+                <pre
+                  class="code-block"
+                  aria-label="Developer profile in JavaScript"
+                ><code><span class="syntax-purple">const</span> <span class="syntax-blue">developer</span> = {
+  <span class="syntax-blue">name</span>: <span class="syntax-green">"Jonh Carlo Tapire"</span>,
+  <span class="syntax-blue">role</span>: <span class="syntax-green">"Web Developer"</span>,
+  <span class="syntax-blue">skills</span>: [
+    <span class="syntax-green">"HTML"</span>, <span class="syntax-green">"CSS"</span>,
+    <span class="syntax-green">"Bootstrap"</span>, <span class="syntax-green">"JavaScript"</span>
+  ],
+  <span class="syntax-blue">location</span>: <span class="syntax-green">"Lipa City, Batangas"</span>,
+  <span class="syntax-blue">passion</span>: <span class="syntax-green">"Building modern websites"</span>
+};</code></pre>
+                <div class="editor-footer mono">
+                  <span
+                    ><span class="status-dot" aria-hidden="true"></span> Always
+                    learning</span
+                  ><span
+                    >JavaScript <i class="bi bi-check2" aria-hidden="true"></i
+                  ></span>
+                </div>
               </div>
             </div>
-            <span class="portrait-label" aria-hidden="true"
-              >LEARN. BUILD. GROW.</span
-            >
-            <svg
-              class="portrait-spark"
-              viewBox="0 0 80 80"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M40 0v80M0 40h80M12 12l56 56M12 68l56-56"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
           </div>
+          <a class="scroll-cue mono" href="#about"
+            ><span class="scroll-mouse" aria-hidden="true"></span> SCROLL TO
+            EXPLORE <i class="bi bi-arrow-down" aria-hidden="true"></i
+          ></a>
         </div>
-        <div class="container hero-bottom">
-          <a href="#about" class="scroll-cue"
-            ><span class="scroll-circle"
-              ><svg class="icon icon-small" aria-hidden="true">
-                <use href="#i-arrow-down" /></svg
-            ></span>
-            Scroll to explore</a
-          ><span class="hero-bottom-note"
-            >A little ambition. A lot of possibility.</span
-          ><span class="hero-index"
-            >PORTFOLIO / <span data-year>2026</span></span
-          >
-        </div>
+        <span class="hero-side-label mono" aria-hidden="true"
+          >DESIGN. CODE. ITERATE.</span
+        >
       </section>
 
       <section
-        class="section section-anchor about-section"
+        class="section-pad section-anchor"
         id="about"
         aria-labelledby="about-title"
       >
         <div class="container">
           <div class="section-heading reveal">
-            <p class="eyebrow">
-              <span class="section-number">01 /</span> THE PERSON BEHIND THE
-              WORK
-            </p>
-            <h2 id="about-title">A little <em>about me.</em></h2>
+            <p class="section-kicker"><span>01.</span> ABOUT ME</p>
+            <h2 id="about-title">
+              A curious mind.<br /><span class="text-muted-custom"
+                >A developer's mindset.</span
+              >
+            </h2>
           </div>
-          <div class="about-grid">
-            <div class="about-image-wrap reveal">
-              <img
-                class="about-image"
-                src="assets/workspace.jpg"
-                alt="Sample study workspace with a laptop and notebook"
-                width="720"
-                height="840"
-                loading="lazy"
-              />
-              <div class="image-caption">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-book" />
-                </svg>
-                <div>
-                  <strong>Learning is a lifelong project.</strong
-                  ><span>One idea, one experience at a time.</span>
-                </div>
-              </div>
-            </div>
-            <div class="about-content reveal">
-              <p class="about-lead">
-                Business-minded.<br />People-first. <em>Always curious.</em>
-              </p>
-              <p>
-                I’m <span data-name>JC Tapire</span>, a student exploring the
-                space where business, creativity, and technology meet. I enjoy
-                making complex ideas simpler and turning a blank page into
-                something useful.
-              </p>
-              <p>
-                Whether I'm collaborating on a school project, learning a new
-                tool, or participating in a community activity, I bring
-                curiosity, care, and a willingness to improve. My goal is to
-                build a career where thoughtful work makes a positive
-                difference.
-              </p>
-              <div class="about-details">
-                <div>
-                  <span class="detail-icon"
-                    ><svg class="icon" aria-hidden="true">
-                      <use href="#i-book" /></svg
-                  ></span>
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-5 reveal">
+              <div class="about-portrait glass">
+                <img
+                  src="images/profile/owner.jpg"
+                  alt="Illustrated JCT profile placeholder; replace with Jonh Carlo Tapire's photo"
+                  width="480"
+                  height="440"
+                  loading="lazy"
+                />
+                <div class="portrait-note">
+                  <i class="bi bi-braces" aria-hidden="true"></i>
                   <div>
-                    <span class="detail-label">EDUCATION</span
-                    ><strong data-education>Your degree or course</strong
-                    ><span data-school>Your school or university</span>
-                  </div>
-                </div>
-                <div>
-                  <span class="detail-icon"
-                    ><svg class="icon" aria-hidden="true">
-                      <use href="#i-pin" /></svg
-                  ></span>
-                  <div>
-                    <span class="detail-label">BASED IN</span
-                    ><strong data-location>Your city, country</strong
-                    ><span>Open to meaningful connections</span>
+                    <strong>More than just code.</strong
+                    ><span>Curiosity. Creativity. Consistency.</span>
                   </div>
                 </div>
               </div>
-              <div class="interests">
-                <span>Outside the classroom</span>
-                <div class="tag-list">
-                  <span class="tag">Technology</span
-                  ><span class="tag">Entrepreneurship</span
-                  ><span class="tag">Design</span
-                  ><span class="tag">Community</span>
+              <div
+                class="terminal glass mt-4"
+                role="region"
+                aria-label="Developer terminal"
+              >
+                <div class="window-bar">
+                  <div class="window-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="mono">jonh@portfolio: ~</span
+                  ><i class="bi bi-terminal" aria-hidden="true"></i>
+                </div>
+                <pre
+                  id="terminal-output"
+                  class="terminal-output"
+                ><span class="terminal-command">jonh@portfolio:~$ whoami</span>
+Jonh Carlo Tapire
+Programmer &amp; Web Developer
+
+<span class="terminal-command">jonh@portfolio:~$ skills</span>
+HTML CSS Bootstrap JavaScript
+
+<span class="terminal-command">jonh@portfolio:~$ status</span>
+Building something awesome...<span class="terminal-cursor" aria-hidden="true">▌</span></pre>
+              </div>
+            </div>
+            <div class="col-lg-7 reveal">
+              <h3 class="about-heading">
+                Hi, I'm Jonh.
+                <span class="accent">I enjoy building for the web.</span>
+              </h3>
+              <p>
+                I'm Jonh Carlo Tapire, a programmer and web developer from Lipa
+                City, Batangas. I enjoy creating responsive and interactive
+                websites using HTML, CSS, Bootstrap, and JavaScript. I am
+                continuously improving my programming skills and learning new
+                technologies.
+              </p>
+              <p>
+                My interests lie in front-end development, thoughtful
+                interfaces, and turning ideas into practical experiences. My
+                goal is to keep developing my craft and grow into a developer
+                who builds useful, accessible products.
+              </p>
+              <div class="about-facts">
+                <div>
+                  <span class="mono">BASED IN</span
+                  ><strong>Lipa City, Batangas, Philippines</strong>
+                </div>
+                <div>
+                  <span class="mono">EDUCATION</span
+                  ><strong class="text-muted-custom"
+                    >Education details to be added</strong
+                  >
+                </div>
+                <div>
+                  <span class="mono">FOCUS</span
+                  ><strong>Responsive &amp; interactive websites</strong>
+                </div>
+                <div>
+                  <span class="mono">MY JOURNEY</span
+                  ><a href="#journey"
+                    >Learning, one project at a time
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></a>
                 </div>
               </div>
-              <p class="placeholder-note">
-                A starting point for your story. Replace these sample profile
-                details with your own.
-              </p>
-            </div>
-          </div>
-          <div class="values-strip reveal">
-            <div>
-              <span class="value-number">01</span>
-              <div>
-                <strong>Stay curious.</strong>
-                <p>There's always something new to learn.</p>
-              </div>
-            </div>
-            <div>
-              <span class="value-number">02</span>
-              <div>
-                <strong>Build with purpose.</strong>
-                <p>Good work starts with a good why.</p>
-              </div>
-            </div>
-            <div>
-              <span class="value-number">03</span>
-              <div>
-                <strong>Grow together.</strong>
-                <p>Better ideas happen with good people.</p>
+              <div class="row g-3 identity-grid">
+                <div class="col-6">
+                  <div class="identity-card">
+                    <i class="bi bi-code-slash" aria-hidden="true"></i> Web
+                    Developer
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="identity-card">
+                    <i class="bi bi-terminal" aria-hidden="true"></i> Programmer
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="identity-card">
+                    <i class="bi bi-puzzle" aria-hidden="true"></i> Problem
+                    Solver
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="identity-card">
+                    <i class="bi bi-book" aria-hidden="true"></i> Continuous
+                    Learner
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -381,80 +378,295 @@
       </section>
 
       <section
-        class="section section-anchor skills-section"
+        class="section-pad section-alt section-anchor"
         id="skills"
         aria-labelledby="skills-title"
       >
         <div class="container">
           <div class="section-heading heading-split reveal">
             <div>
-              <p class="eyebrow">
-                <span class="section-number">02 /</span> MY TOOLKIT
-              </p>
+              <p class="section-kicker"><span>02.</span> MY SKILLS</p>
               <h2 id="skills-title">
-                Skills that make<br /><em>things happen.</em>
+                The tools behind<br /><span class="text-muted-custom"
+                  >the things I build.</span
+                >
               </h2>
             </div>
             <p>
-              A growing mix of practical tools, business knowledge, and people
-              skills. Always learning. Always adding to the toolkit.
+              A focused foundation for creating clean, responsive, and
+              interactive experiences.
             </p>
           </div>
-          <div class="skills-grid" id="skills-grid"></div>
-          <p class="section-footnote reveal">
-            <svg class="icon icon-small" aria-hidden="true">
-              <use href="#i-sparkles" />
-            </svg>
-            Not an expert in everything. A committed learner in all of it.
-            <span>Sample skills — customize your toolkit.</span>
-          </p>
+          <div class="row g-4" id="skills-grid">
+            <div class="col-sm-6 col-xl-3">
+              <article
+                class="card skill-card glass spotlight reveal"
+                style="--stagger: 0ms"
+              >
+                <span class="skill-index mono">01 / STRUCTURE</span>
+                <div class="tech-icon html-icon" aria-hidden="true">
+                  <i class="bi bi-filetype-html"></i>
+                </div>
+                <h3>HTML5</h3>
+                <p>Used for creating the structure and content of websites.</p>
+                <div class="skill-footer mono">
+                  Semantic foundations
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <article
+                class="card skill-card glass spotlight reveal"
+                style="--stagger: 75ms"
+              >
+                <span class="skill-index mono">02 / PRESENTATION</span>
+                <div class="tech-icon css-icon" aria-hidden="true">
+                  <i class="bi bi-filetype-css"></i>
+                </div>
+                <h3>CSS3</h3>
+                <p>
+                  Used for creating responsive layouts, styling, animations, and
+                  modern user interfaces.
+                </p>
+                <div class="skill-footer mono">
+                  Design in every detail
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <article
+                class="card skill-card glass spotlight reveal"
+                style="--stagger: 150ms"
+              >
+                <span class="skill-index mono">03 / RESPONSIVENESS</span>
+                <div class="tech-icon bootstrap-icon" aria-hidden="true">
+                  <i class="bi bi-bootstrap"></i>
+                </div>
+                <h3>Bootstrap 5</h3>
+                <p>
+                  Used for creating responsive layouts and reusable UI
+                  components.
+                </p>
+                <div class="skill-footer mono">
+                  Built for every screen
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <article
+                class="card skill-card glass spotlight reveal"
+                style="--stagger: 225ms"
+              >
+                <span class="skill-index mono">04 / INTERACTION</span>
+                <div class="tech-icon js-icon" aria-hidden="true">
+                  <i class="bi bi-javascript"></i>
+                </div>
+                <h3>JavaScript</h3>
+                <p>
+                  Used for creating interactive website features, animations,
+                  and dynamic functionality.
+                </p>
+                <div class="skill-footer mono">
+                  Bringing ideas to life
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div
+          class="stack-marquee"
+          role="group"
+          aria-label="Technology toolkit: HTML5, CSS3, Bootstrap 5, JavaScript, Git, GitHub, VS Code"
+        >
+          <div class="marquee-track" aria-hidden="true">
+            <div class="marquee-group">
+              <span>HTML5</span><b>✦</b><span>CSS3</span><b>✦</b
+              ><span>Bootstrap 5</span><b>✦</b><span>JavaScript</span><b>✦</b
+              ><span>Git</span><b>✦</b><span>GitHub</span><b>✦</b
+              ><span>VS Code</span><b>✦</b>
+            </div>
+            <div class="marquee-group">
+              <span>HTML5</span><b>✦</b><span>CSS3</span><b>✦</b
+              ><span>Bootstrap 5</span><b>✦</b><span>JavaScript</span><b>✦</b
+              ><span>Git</span><b>✦</b><span>GitHub</span><b>✦</b
+              ><span>VS Code</span><b>✦</b>
+            </div>
+          </div>
+          <button
+            class="marquee-toggle"
+            type="button"
+            aria-label="Pause technology animation"
+            aria-pressed="false"
+          >
+            <i class="bi bi-pause-fill" aria-hidden="true"></i>
+          </button>
         </div>
       </section>
 
       <section
-        class="section section-anchor events-section"
+        class="section-pad section-anchor"
         id="events"
         aria-labelledby="events-title"
       >
         <div class="container">
           <div class="section-heading heading-split reveal">
             <div>
-              <p class="eyebrow">
-                <span class="section-number">03 /</span> BEYOND THE CLASSROOM
+              <p class="section-kicker">
+                <span>03.</span> EVENTS &amp; ACTIVITIES
               </p>
               <h2 id="events-title">
-                Experiences that<br /><em>shape me.</em>
+                Learning beyond<br /><span class="text-muted-custom"
+                  >the screen.</span
+                >
               </h2>
             </div>
             <p>
-              Learning doesn't stop at a desk. A space for the events,
-              communities, and moments that help me grow.
+              A space for workshops, collaborative experiences, and the lessons
+              along the way.
             </p>
           </div>
-          <div class="events-grid" id="events-grid"></div>
-          <p class="section-footnote">
-            Example activities and stock photos. Replace with the experiences
-            you've actually participated in.
+          <p class="content-note reveal">
+            <i class="bi bi-info-circle" aria-hidden="true"></i> Sample entries
+            below show the gallery format. Actual events, dates, and photos will
+            be added.
           </p>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="card event-card glass reveal">
+                <button
+                  class="image-button"
+                  type="button"
+                  data-event="workshop"
+                  aria-label="Open Programming Workshop sample details"
+                >
+                  <img
+                    src="images/events/bec1.jpg"
+                    width="800"
+                    height="480"
+                    alt="Illustration of a programming workshop, not a photo of an attended event"
+                    loading="lazy"
+                  /><span class="image-label">SAMPLE EVENT</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="card-eyebrow mono">
+                    WEB DEVELOPMENT <span>·</span> WORKSHOP
+                  </div>
+                  <h3>HACK SAN JUAN BEC CIVIC HACKATHON</h3>
+                  <p>
+                    My first time joining the San Juan BEC-Hackathon was a great
+                    and memorable experience. I felt excited and inspired
+                    because it was my first time doing something like this. I
+                    learned a lot, met new people, and enjoyed the experience of
+                    building and creating something with others. It was
+                    definitely a great first experience that I will remember.
+                  </p>
+                  <div class="event-meta">
+                    <span
+                      ><i class="bi bi-calendar3" aria-hidden="true"></i> Date
+                      to be added</span
+                    ><span
+                      ><i class="bi bi-geo-alt" aria-hidden="true"></i> Venue to
+                      be added</span
+                    >
+                  </div>
+                  <p class="event-role">
+                    Role &amp; learning takeaways: to be added
+                  </p>
+                  <button
+                    class="text-button"
+                    data-event="workshop"
+                    type="button"
+                  >
+                    View Details
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article
+                class="card event-card glass reveal"
+                style="--stagger: 100ms"
+              >
+                <button
+                  class="image-button"
+                  type="button"
+                  data-event="collaboration"
+                  aria-label="Open Collaborative Coding Activity sample details"
+                >
+                  <img
+                    src="images/events/mhack.jpg"
+                    width="800"
+                    height="480"
+                    alt="Illustration of a collaborative coding workspace, a sample event cover"
+                    loading="lazy"
+                  /><span class="image-label">SAMPLE EVENT</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="card-eyebrow mono">
+                    PROGRAMMING <span>·</span> COLLABORATION
+                  </div>
+                  <h3>MINI HACKATHON JPCS</h3>
+                  <p>
+                    Proud to have achieved 2nd Place in the JPCS mini-hackathon
+                    2026, where our team showcased our creativity and bright
+                    idea for CCTE department.
+                  </p>
+                  <div class="event-meta">
+                    <span
+                      ><i class="bi bi-calendar3" aria-hidden="true"></i> Date
+                      to be added</span
+                    ><span
+                      ><i class="bi bi-geo-alt" aria-hidden="true"></i> Venue to
+                      be added</span
+                    >
+                  </div>
+                  <p class="event-role">
+                    Role &amp; learning takeaways: to be added
+                  </p>
+                  <button
+                    class="text-button"
+                    data-event="collaboration"
+                    type="button"
+                  >
+                    View Details
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
       <section
-        class="section section-anchor projects-section"
+        class="section-pad section-alt section-anchor"
         id="projects"
         aria-labelledby="projects-title"
       >
         <div class="container">
           <div class="section-heading heading-split reveal">
             <div>
-              <p class="eyebrow">
-                <span class="section-number">04 /</span> SELECTED WORK
-              </p>
-              <h2 id="projects-title">Ideas, brought<br /><em>to life.</em></h2>
+              <p class="section-kicker"><span>04.</span> FEATURED PROJECTS</p>
+              <h2 id="projects-title">
+                Ideas, brought<br /><span class="gradient-text"
+                  >to the browser.</span
+                >
+              </h2>
             </div>
             <p>
-              A few example projects to show what's possible. Thoughtful
-              concepts, practical solutions, and room to grow.
+              A closer look at what I build, how I approach problems, and what I
+              learn in the process.
             </p>
           </div>
           <div class="project-toolbar reveal">
@@ -464,241 +676,748 @@
               aria-label="Filter projects"
             >
               <button
-                class="filter-button active"
+                type="button"
+                class="filter-btn active"
                 data-filter="all"
                 aria-pressed="true"
               >
-                All projects <span>04</span></button
+                All <span>04</span></button
               ><button
-                class="filter-button"
-                data-filter="Development"
+                type="button"
+                class="filter-btn"
+                data-filter="html-css"
                 aria-pressed="false"
               >
-                Development</button
+                HTML/CSS</button
               ><button
-                class="filter-button"
-                data-filter="Design"
+                type="button"
+                class="filter-btn"
+                data-filter="bootstrap"
                 aria-pressed="false"
               >
-                Design</button
+                Bootstrap</button
               ><button
-                class="filter-button"
-                data-filter="Business"
+                type="button"
+                class="filter-btn"
+                data-filter="javascript"
                 aria-pressed="false"
               >
-                Business
+                JavaScript</button
+              ><button
+                type="button"
+                class="filter-btn"
+                data-filter="school"
+                aria-pressed="false"
+              >
+                School Projects</button
+              ><button
+                type="button"
+                class="filter-btn"
+                data-filter="personal"
+                aria-pressed="false"
+              >
+                Personal Projects
               </button>
             </div>
             <span
-              class="project-counter"
-              id="project-counter"
+              class="mono project-count"
+              id="project-count"
               role="status"
               aria-live="polite"
               >4 projects</span
             >
           </div>
-          <div class="projects-grid" id="projects-grid"></div>
-          <div class="project-bottom reveal">
-            <p>Have an idea worth exploring?</p>
-            <a href="#contact" class="text-link"
-              >Let's build something together
-              <svg class="icon" aria-hidden="true">
-                <use href="#i-arrow-up-right" /></svg
-            ></a>
+          <div class="row g-4" id="projects-grid">
+            <div
+              class="col-md-6 project-item"
+              data-categories="html-css bootstrap javascript personal"
+            >
+              <article class="card project-card glass spotlight reveal">
+                <button
+                  class="image-button"
+                  type="button"
+                  data-project="portfolio"
+                  aria-label="Open Personal Portfolio project details"
+                >
+                  <img
+                    src="images/projects/portfolio.svg"
+                    width="1000"
+                    height="620"
+                    alt="Illustrative preview of this dark developer portfolio"
+                    loading="lazy"
+                  /><span class="image-label">THIS WEBSITE</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="project-topline">
+                    <span class="card-eyebrow mono">01 / PERSONAL PROJECT</span
+                    ><i class="bi bi-braces accent" aria-hidden="true"></i>
+                  </div>
+                  <h3>Personal Portfolio</h3>
+                  <p>
+                    A modern and responsive programmer portfolio designed to
+                    showcase my skills, projects, experiences, and achievements.
+                  </p>
+                  <div class="technology-badges">
+                    <span class="badge">HTML5</span
+                    ><span class="badge">CSS3</span
+                    ><span class="badge">Bootstrap 5</span
+                    ><span class="badge">JavaScript</span>
+                  </div>
+                  <ul class="project-features">
+                    <li>Responsive design &amp; accessible interactions</li>
+                    <li>Project filters, galleries &amp; animated details</li>
+                  </ul>
+                  <div class="project-actions">
+                    <button
+                      class="text-button"
+                      type="button"
+                      data-project="portfolio"
+                    >
+                      View Project
+                      <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <div>
+                      <a
+                        class="project-external"
+                        href="./index.html"
+                        aria-label="Live Demo of Personal Portfolio"
+                        >Live Demo ↗</a
+                      ><span
+                        class="project-external unavailable"
+                        title="Repository URL has not been supplied"
+                        >GitHub —</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-md-6 project-item"
+              data-categories="html-css javascript personal"
+            >
+              <article
+                class="card project-card glass spotlight reveal"
+                style="--stagger: 75ms"
+              >
+                <button
+                  class="image-button"
+                  type="button"
+                  data-project="taskboard"
+                  aria-label="Open Taskboard concept details"
+                >
+                  <img
+                    src="images/projects/taskboard.svg"
+                    width="1000"
+                    height="620"
+                    alt="Illustrative task management dashboard concept; not a working application"
+                    loading="lazy"
+                  /><span class="image-label">CONCEPT / NOT BUILT</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="project-topline">
+                    <span class="card-eyebrow mono">02 / PERSONAL CONCEPT</span
+                    ><i class="bi bi-kanban accent" aria-hidden="true"></i>
+                  </div>
+                  <h3>Taskboard</h3>
+                  <p>
+                    A proposed task manager for organizing daily work in a
+                    simple, focused interface. An illustrative concept, not a
+                    completed application.
+                  </p>
+                  <div class="technology-badges">
+                    <span class="badge">HTML5</span
+                    ><span class="badge">CSS3</span
+                    ><span class="badge">JavaScript</span>
+                  </div>
+                  <ul class="project-features">
+                    <li>Planned: task creation &amp; status updates</li>
+                    <li>Planned: local storage &amp; category filters</li>
+                  </ul>
+                  <div class="project-actions">
+                    <button
+                      class="text-button"
+                      type="button"
+                      data-project="taskboard"
+                    >
+                      View Concept
+                      <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <div>
+                      <span class="project-external unavailable"
+                        >Live Demo —</span
+                      ><span class="project-external unavailable"
+                        >GitHub —</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-md-6 project-item"
+              data-categories="html-css bootstrap school"
+            >
+              <article class="card project-card glass spotlight reveal">
+                <button
+                  class="image-button"
+                  type="button"
+                  data-project="campus"
+                  aria-label="Open Campus Connect sample project details"
+                >
+                  <img
+                    src="images/projects/campus.svg"
+                    width="1000"
+                    height="620"
+                    alt="Illustrative school landing page concept; not an actual school project"
+                    loading="lazy"
+                  /><span class="image-label">SAMPLE / NOT BUILT</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="project-topline">
+                    <span class="card-eyebrow mono"
+                      >03 / SCHOOL PROJECT SAMPLE</span
+                    ><i class="bi bi-mortarboard accent" aria-hidden="true"></i>
+                  </div>
+                  <h3>Campus Connect</h3>
+                  <p>
+                    A sample responsive school landing-page concept. This entry
+                    demonstrates where a real school project can be showcased.
+                  </p>
+                  <div class="technology-badges">
+                    <span class="badge">HTML5</span
+                    ><span class="badge">CSS3</span
+                    ><span class="badge">Bootstrap 5</span>
+                  </div>
+                  <ul class="project-features">
+                    <li>Planned: responsive campus information</li>
+                    <li>Planned: events &amp; announcement cards</li>
+                  </ul>
+                  <div class="project-actions">
+                    <button
+                      class="text-button"
+                      type="button"
+                      data-project="campus"
+                    >
+                      View Concept
+                      <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <div>
+                      <span class="project-external unavailable"
+                        >Live Demo —</span
+                      ><span class="project-external unavailable"
+                        >GitHub —</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div
+              class="col-md-6 project-item"
+              data-categories="html-css bootstrap javascript personal"
+            >
+              <article
+                class="card project-card glass spotlight reveal"
+                style="--stagger: 75ms"
+              >
+                <button
+                  class="image-button"
+                  type="button"
+                  data-project="weather"
+                  aria-label="Open Weatherly concept details"
+                >
+                  <img
+                    src="images/projects/weather.svg"
+                    width="1000"
+                    height="620"
+                    alt="Illustrative weather dashboard concept; no weather data integration is implemented"
+                    loading="lazy"
+                  /><span class="image-label">CONCEPT / NOT BUILT</span
+                  ><span class="image-arrow"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </button>
+                <div class="card-body">
+                  <div class="project-topline">
+                    <span class="card-eyebrow mono">04 / PERSONAL CONCEPT</span
+                    ><i class="bi bi-cloud-sun accent" aria-hidden="true"></i>
+                  </div>
+                  <h3>Weatherly</h3>
+                  <p>
+                    A proposed weather dashboard exploring clear data
+                    presentation. The cover is a UI illustration, not a
+                    functioning weather service.
+                  </p>
+                  <div class="technology-badges">
+                    <span class="badge">HTML5</span
+                    ><span class="badge">CSS3</span
+                    ><span class="badge">Bootstrap 5</span
+                    ><span class="badge">JavaScript</span>
+                  </div>
+                  <ul class="project-features">
+                    <li>Planned: city search &amp; weather summaries</li>
+                    <li>Planned: loading states &amp; API error handling</li>
+                  </ul>
+                  <div class="project-actions">
+                    <button
+                      class="text-button"
+                      type="button"
+                      data-project="weather"
+                    >
+                      View Concept
+                      <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                    </button>
+                    <div>
+                      <span class="project-external unavailable"
+                        >Live Demo —</span
+                      ><span class="project-external unavailable"
+                        >GitHub —</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p class="content-note mt-4">
+            <i class="bi bi-info-circle" aria-hidden="true"></i> This portfolio
+            is implemented. Other entries are clearly labeled concepts awaiting
+            real projects and links.
+          </p>
+          <noscript
+            ><p class="content-note">
+              Enable JavaScript to use filters and open project or event
+              details. All card summaries remain available here.
+            </p></noscript
+          >
+        </div>
+      </section>
+
+      <section
+        class="section-pad section-anchor"
+        id="journey"
+        aria-labelledby="journey-title"
+      >
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-5">
+              <div class="section-heading reveal">
+                <p class="section-kicker"><span>05.</span> DEVELOPER JOURNEY</p>
+                <h2 id="journey-title">
+                  Progress is<br /><span class="text-muted-custom"
+                    >a process.</span
+                  >
+                </h2>
+                <p class="mt-4">
+                  From a first line of code to an interactive website. A
+                  learning path built on curiosity, practice, and continuous
+                  improvement.
+                </p>
+                <span class="journey-note mono"
+                  >// milestones, not the finish line</span
+                >
+                <p class="content-note mt-3">
+                  An editable overview of the learning path. Dates and personal
+                  milestone details can be added.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <ol class="timeline">
+                <li class="timeline-item reveal">
+                  <span class="timeline-dot" aria-hidden="true"></span
+                  ><span class="mono timeline-step">01 / THE FOUNDATION</span>
+                  <h3>Started Programming</h3>
+                  <p>
+                    Started learning the fundamentals of programming and
+                    approaching problems step by step.
+                  </p>
+                </li>
+                <li class="timeline-item reveal">
+                  <span class="timeline-dot" aria-hidden="true"></span
+                  ><span class="mono timeline-step">02 / FIRST WEBSITES</span>
+                  <h3>Started Web Development</h3>
+                  <p>
+                    Explored HTML and CSS to turn ideas into structured, styled
+                    web pages.
+                  </p>
+                </li>
+                <li class="timeline-item reveal">
+                  <span class="timeline-dot" aria-hidden="true"></span
+                  ><span class="mono timeline-step">03 / EVERY SCREEN</span>
+                  <h3>Learned Bootstrap</h3>
+                  <p>
+                    Started creating responsive layouts using Bootstrap's grid
+                    and reusable components.
+                  </p>
+                </li>
+                <li class="timeline-item reveal">
+                  <span class="timeline-dot" aria-hidden="true"></span
+                  ><span class="mono timeline-step"
+                    >04 / MAKING IT INTERACTIVE</span
+                  >
+                  <h3>Learned JavaScript</h3>
+                  <p>
+                    Added interactive features, animations, and dynamic
+                    functionality to websites.
+                  </p>
+                </li>
+                <li class="timeline-item timeline-current reveal">
+                  <span class="timeline-dot" aria-hidden="true"></span
+                  ><span class="mono timeline-step">05 / WHAT'S NEXT</span>
+                  <h3>Keep Learning. Keep Building.</h3>
+                  <p>
+                    Continue improving my web development and programming
+                    skills, and grow toward meaningful professional
+                    opportunities.
+                  </p>
+                  <span class="current-badge mono"
+                    ><span class="status-dot" aria-hidden="true"></span> CURRENT
+                    GOAL</span
+                  >
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
       </section>
 
       <section
-        class="section section-anchor contact-section"
+        class="section-pad section-alt section-anchor contact-section"
         id="contact"
         aria-labelledby="contact-title"
       >
-        <div class="container contact-grid">
-          <div class="contact-content reveal">
-            <p class="eyebrow">
-              <span class="section-number">05 /</span> LET'S CONNECT
-            </p>
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-kicker"><span>06.</span> CONTACT ME</p>
             <h2 id="contact-title">
-              Good things start<br />with a <em>hello.</em>
+              Let's build something<br /><span class="gradient-text"
+                >together.</span
+              >
             </h2>
-            <p>
-              Have a project in mind, an opportunity to share, or just want to
-              say hi? I'd love to hear from you.
+            <p class="mt-3">
+              Have a project, opportunity, collaboration, or question? Feel free
+              to contact me.
             </p>
-            <div class="contact-email-card">
-              <span class="detail-icon"
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#i-mail" /></svg
-              ></span>
-              <div>
-                <span class="detail-label">DROP ME A LINE</span
-                ><a href="mailto:hello@example.com" data-email-link
-                  >hello@example.com</a
+          </div>
+          <div class="row g-5">
+            <div class="col-lg-5 reveal">
+              <div class="contact-details">
+                <a
+                  href="mailto:jonhcarlotapire@gmail.com"
+                  class="contact-detail"
+                  ><span class="contact-icon"
+                    ><i class="bi bi-envelope" aria-hidden="true"></i
+                  ></span>
+                  <div>
+                    <span class="mono">EMAIL</span
+                    ><strong>jonhcarlotapire@gmail.com</strong>
+                  </div>
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a
+                ><a href="tel:+639519676034" class="contact-detail"
+                  ><span class="contact-icon"
+                    ><i class="bi bi-telephone" aria-hidden="true"></i
+                  ></span>
+                  <div>
+                    <span class="mono">PHONE</span><strong>09519676034</strong>
+                  </div>
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                ></a>
+                <div class="contact-detail">
+                  <span class="contact-icon"
+                    ><i class="bi bi-geo-alt" aria-hidden="true"></i
+                  ></span>
+                  <div>
+                    <span class="mono">LOCATION</span
+                    ><strong>Lipa City, Batangas, Philippines</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <a
+                  class="btn btn-primary"
+                  href="mailto:jonhcarlotapire@gmail.com"
+                  >Send Email
+                  <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a
+                ><a class="btn btn-outline" href="tel:+639519676034"
+                  >Contact Me <i class="bi bi-telephone" aria-hidden="true"></i
+                ></a>
+              </div>
+              <p class="social-heading mono">ELSEWHERE ON THE INTERNET</p>
+              <div class="social-links" data-socials>
+                <span class="social-placeholder" title="GitHub URL to be added"
+                  ><i class="bi bi-github" aria-hidden="true"></i
+                  ><span class="visually-hidden"
+                    >GitHub: URL to be added</span
+                  ></span
+                ><span
+                  class="social-placeholder"
+                  title="LinkedIn URL to be added"
+                  ><i class="bi bi-linkedin" aria-hidden="true"></i
+                  ><span class="visually-hidden"
+                    >LinkedIn: URL to be added</span
+                  ></span
+                ><span
+                  class="social-placeholder"
+                  title="Facebook URL to be added"
+                  ><i class="bi bi-facebook" aria-hidden="true"></i
+                  ><span class="visually-hidden"
+                    >Facebook: URL to be added</span
+                  ></span
+                ><span
+                  class="social-placeholder"
+                  title="Instagram URL to be added"
+                  ><i class="bi bi-instagram" aria-hidden="true"></i
+                  ><span class="visually-hidden"
+                    >Instagram: URL to be added</span
+                  ></span
                 >
               </div>
-              <button
-                class="icon-button copy-email"
-                aria-label="Copy email address"
-                title="Copy email address"
+              <small class="text-muted-custom d-block mt-2"
+                >Social profiles will be linked when provided.</small
               >
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-copy" />
-                </svg>
-              </button>
             </div>
-            <p class="contact-availability">
-              <span class="status-dot"></span> Open to conversations &
-              collaborations
-            </p>
-            <div class="contact-socials">
-              <span>Elsewhere on the internet</span>
-              <div class="social-links" data-socials></div>
-            </div>
-          </div>
-          <div class="contact-form-wrap reveal">
-            <form id="contact-form" novalidate>
-              <h3>Send a little hello.</h3>
-              <p class="form-intro">A question, an idea, a conversation.</p>
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="name"
-                    >Your name <span aria-hidden="true">*</span></label
-                  ><input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Alex Taylor"
-                    autocomplete="name"
-                    required
-                    maxlength="100"
-                    aria-describedby="name-error"
-                  /><span class="field-error" id="name-error"></span>
-                </div>
-                <div class="form-field">
-                  <label for="email"
-                    >Email address <span aria-hidden="true">*</span></label
-                  ><input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="alex@example.com"
-                    autocomplete="email"
-                    required
-                    maxlength="254"
-                    aria-describedby="email-error"
-                  /><span class="field-error" id="email-error"></span>
-                </div>
-              </div>
-              <div class="form-field">
-                <label for="message"
-                  >Your message <span aria-hidden="true">*</span></label
-                ><textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me what's on your mind…"
-                  required
-                  minlength="10"
-                  maxlength="5000"
-                  aria-describedby="message-error"
-                ></textarea
-                ><span class="field-error" id="message-error"></span>
-              </div>
-              <div class="honeypot" aria-hidden="true">
-                <label for="website">Leave this empty</label
-                ><input
-                  id="website"
-                  name="website"
-                  tabindex="-1"
-                  autocomplete="off"
+            <div class="col-lg-7 reveal">
+              <form
+                class="contact-form glass"
+                id="contact-form"
+                aria-describedby="form-note"
+                action="https://formsubmit.co/jonhcarlotapire@gmail.com"
+                method="POST"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New portfolio contact message"
                 />
-              </div>
-              <button
-                class="button button-primary send-button"
-                type="submit"
-                disabled
-              >
-                <span>Send Message</span
-                ><svg class="icon" aria-hidden="true">
-                  <use href="#i-send" />
-                </svg>
-              </button>
-              <p class="form-note" id="form-note">
-                Demo form: configure your contact details to enable messaging.
-              </p>
-              <p
-                class="form-status"
-                id="form-status"
-                role="status"
-                aria-live="polite"
-              ></p>
-            </form>
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_url" value="" />
+                <div hidden aria-hidden="true">
+                  <label for="contact-website">Leave this field empty</label>
+                  <input
+                    id="contact-website"
+                    type="text"
+                    name="_honey"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="form-heading">
+                  <h3>Send a message</h3>
+                  <span class="mono"
+                    >LET'S CONNECT
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                  ></span>
+                </div>
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label class="form-label" for="full-name"
+                      >Full Name <span aria-hidden="true">*</span></label
+                    ><input
+                      class="form-control"
+                      id="full-name"
+                      name="name"
+                      autocomplete="name"
+                      placeholder="Your name"
+                      maxlength="100"
+                      required
+                      aria-describedby="name-error"
+                    />
+                    <div class="invalid-feedback" id="name-error">
+                      Please enter your full name.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="email"
+                      >Email <span aria-hidden="true">*</span></label
+                    ><input
+                      class="form-control"
+                      type="email"
+                      id="email"
+                      name="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                      maxlength="254"
+                      required
+                      aria-describedby="email-error"
+                    />
+                    <div class="invalid-feedback" id="email-error">
+                      Please enter a valid email address.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="subject"
+                      >Subject <span aria-hidden="true">*</span></label
+                    ><input
+                      class="form-control"
+                      id="subject"
+                      name="subject"
+                      placeholder="What's on your mind?"
+                      maxlength="150"
+                      required
+                      aria-describedby="subject-error"
+                    />
+                    <div class="invalid-feedback" id="subject-error">
+                      Please enter a subject.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="message"
+                      >Message <span aria-hidden="true">*</span></label
+                    ><textarea
+                      class="form-control"
+                      id="message"
+                      name="message"
+                      rows="5"
+                      placeholder="Tell me about your idea..."
+                      maxlength="5000"
+                      required
+                      aria-describedby="message-error"
+                    ></textarea>
+                    <div class="invalid-feedback" id="message-error">
+                      Please enter a message.
+                    </div>
+                  </div>
+                </div>
+                <p id="form-note" class="form-note">
+                  <i class="bi bi-info-circle" aria-hidden="true"></i>
+                  Sends to jonhcarlotapire@gmail.com through FormSubmit. Your
+                  name, email, and message are processed by that service.
+                  First-time delivery requires Jonh to activate the form in
+                  Gmail.
+                </p>
+                <button class="btn btn-primary w-100" type="submit">
+                  Send Message <i class="bi bi-send" aria-hidden="true"></i>
+                </button>
+                <div
+                  class="alert mt-3 mb-0"
+                  id="form-feedback"
+                  role="status"
+                  aria-live="polite"
+                  hidden
+                ></div>
+                <noscript
+                  ><p class="mt-3 mb-0">
+                    This form submits securely through FormSubmit and may show a
+                    verification screen. You can also use the Send Email link.
+                  </p></noscript
+                >
+              </form>
+            </div>
           </div>
         </div>
       </section>
-      <noscript>
-        <style>
-          .menu-toggle {
-            display: none;
-          }
-          .desktop-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-          }
-          .nav-wrap {
-            height: auto;
-            min-height: 82px;
-            padding-block: 16px;
-            flex-wrap: wrap;
-          }
-        </style>
-        <div class="container no-script">
-          Enable JavaScript to see the editable skill, event, and project cards.
-          You can still get in touch by email.
-        </div>
-      </noscript>
     </main>
-
     <footer class="site-footer">
       <div class="container">
         <div class="footer-top">
-          <a class="brand" href="#home"
-            ><span class="brand-mark">jc<span>.</span></span
-            ><span class="brand-name" data-name>JC Tapire</span></a
+          <a class="brand footer-brand" href="#home" aria-label="Return to home"
+            >&lt;Jonh Carlo Tapire <span>/&gt;</span></a
           >
-          <p>Learning today. Building for tomorrow.</p>
-          <a href="#home" class="back-to-top"
-            >Back to top
-            <svg class="icon icon-small" aria-hidden="true">
-              <use href="#i-arrow-up-right" /></svg
-          ></a>
+          <div class="social-links" data-socials>
+            <span class="social-placeholder" title="GitHub URL to be added"
+              ><i class="bi bi-github" aria-hidden="true"></i
+              ><span class="visually-hidden">GitHub URL to be added</span></span
+            ><span class="social-placeholder" title="LinkedIn URL to be added"
+              ><i class="bi bi-linkedin" aria-hidden="true"></i
+              ><span class="visually-hidden"
+                >LinkedIn URL to be added</span
+              ></span
+            ><span class="social-placeholder" title="Facebook URL to be added"
+              ><i class="bi bi-facebook" aria-hidden="true"></i
+              ><span class="visually-hidden"
+                >Facebook URL to be added</span
+              ></span
+            ><span class="social-placeholder" title="Instagram URL to be added"
+              ><i class="bi bi-instagram" aria-hidden="true"></i
+              ><span class="visually-hidden"
+                >Instagram URL to be added</span
+              ></span
+            >
+          </div>
         </div>
         <div class="footer-bottom">
+          <div>
+            <p>Designed &amp; Developed by Jonh Carlo Tapire</p>
+            <p class="mono">
+              Built using HTML, CSS, Bootstrap &amp; JavaScript
+            </p>
+          </div>
           <p>
-            © <span data-year>2026</span> <span data-name>JC Tapire</span>. All
-            rights reserved.
+            © <span data-year>2026</span> Jonh Carlo Tapire. All Rights
+            Reserved.
           </p>
-          <nav aria-label="Footer navigation">
-            <a href="#about">About</a><a href="#projects">Projects</a
-            ><a href="#contact">Contact</a>
-          </nav>
-          <div class="social-links" data-socials></div>
         </div>
       </div>
     </footer>
-
-    <dialog
-      class="detail-dialog"
-      id="detail-dialog"
-      aria-labelledby="dialog-title"
+    <button
+      class="back-to-top"
+      id="back-to-top"
+      type="button"
+      aria-label="Back to top"
+      hidden
     >
-      <button class="dialog-close icon-button" aria-label="Close details">
-        <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
-      </button>
-      <div id="dialog-content"></div>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <i class="bi bi-arrow-up" aria-hidden="true"></i
+      ><span class="visually-hidden">Back to Top</span>
+    </button>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+    <!-- Bootstrap provides focus trapping, Escape support, and focus restoration. -->
+    <div
+      class="modal fade"
+      id="detail-modal"
+      tabindex="-1"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="mono accent" id="modal-kind">PROJECT DETAILS</span
+            ><button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close details"
+            ></button>
+          </div>
+          <div class="modal-body" id="modal-body">
+            <h2 id="modal-title">Details</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+      <div
+        class="toast"
+        id="site-toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="toast-body d-flex align-items-center gap-3">
+          <i class="bi bi-info-circle accent" aria-hidden="true"></i
+          ><span id="toast-message"></span
+          ><button
+            type="button"
+            class="btn-close ms-auto"
+            data-bs-dismiss="toast"
+            aria-label="Dismiss notification"
+          ></button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
