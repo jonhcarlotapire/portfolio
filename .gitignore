@@ -7,3 +7,6 @@ Thumbs.db
 *.log
 test-results/
 playwright-report/
+.wrangler/
+.dev.vars
+.dev.vars.*

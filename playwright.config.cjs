@@ -3,7 +3,7 @@ const { defineConfig } = require("@playwright/test");
 module.exports = defineConfig({
   testDir: "./tests",
   // The original portfolio tests are retained, but target the previous design.
-  testMatch: "redesign.spec.cjs",
+  testMatch: ["redesign.spec.cjs", "chatbot.spec.cjs", "worker.spec.cjs"],
   fullyParallel: true,
   workers: 2,
   timeout: 45000,

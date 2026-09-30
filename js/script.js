@@ -40,10 +40,26 @@
     // No SMTP password or private API key belongs in client-side code.
     formEndpoint: "https://formsubmit.co/ajax/jonhcarlotapire@gmail.com",
     socials: [
-      { label: "GitHub", icon: "github", url: "" },
-      { label: "LinkedIn", icon: "linkedin", url: "" },
-      { label: "Facebook", icon: "facebook", url: "" },
-      { label: "Instagram", icon: "instagram", url: "" },
+      {
+        label: "GitHub",
+        icon: "github",
+        url: "https://github.com/jonhcarlotapire",
+      },
+      {
+        label: "LinkedIn",
+        icon: "linkedin",
+        url: "https://www.linkedin.com/in/jonh-carlo-tapire-53351a435/",
+      },
+      {
+        label: "Facebook",
+        icon: "facebook",
+        url: "https://www.facebook.com/jc.tapire71",
+      },
+      {
+        label: "Instagram",
+        icon: "instagram",
+        url: "https://www.instagram.com/jctapiree/?__d=1",
+      },
     ],
   };
   const projects = {

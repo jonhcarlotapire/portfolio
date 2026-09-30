@@ -46,6 +46,7 @@
       defer
     ></script>
     <script src="js/script.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
   </head>
   <body data-bs-theme="dark">
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -1155,36 +1156,41 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
               </div>
               <p class="social-heading mono">ELSEWHERE ON THE INTERNET</p>
               <div class="social-links" data-socials>
-                <span class="social-placeholder" title="GitHub URL to be added"
+                <a
+                  class="social-link"
+                  href="https://github.com/jonhcarlotapire"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub (opens in a new tab)"
                   ><i class="bi bi-github" aria-hidden="true"></i
-                  ><span class="visually-hidden"
-                    >GitHub: URL to be added</span
-                  ></span
-                ><span
-                  class="social-placeholder"
-                  title="LinkedIn URL to be added"
+                ></a>
+                <a
+                  class="social-link"
+                  href="https://www.linkedin.com/in/jonh-carlo-tapire-53351a435/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn (opens in a new tab)"
                   ><i class="bi bi-linkedin" aria-hidden="true"></i
-                  ><span class="visually-hidden"
-                    >LinkedIn: URL to be added</span
-                  ></span
-                ><span
-                  class="social-placeholder"
-                  title="Facebook URL to be added"
+                ></a>
+                <a
+                  class="social-link"
+                  href="https://www.facebook.com/jc.tapire71"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook (opens in a new tab)"
                   ><i class="bi bi-facebook" aria-hidden="true"></i
-                  ><span class="visually-hidden"
-                    >Facebook: URL to be added</span
-                  ></span
-                ><span
-                  class="social-placeholder"
-                  title="Instagram URL to be added"
+                ></a>
+                <a
+                  class="social-link"
+                  href="https://www.instagram.com/jctapiree/?__d=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram (opens in a new tab)"
                   ><i class="bi bi-instagram" aria-hidden="true"></i
-                  ><span class="visually-hidden"
-                    >Instagram: URL to be added</span
-                  ></span
-                >
+                ></a>
               </div>
               <small class="text-muted-custom d-block mt-2"
-                >Social profiles will be linked when provided.</small
+                >Find my work and connect with me online.</small
               >
             </div>
             <div class="col-lg-7 reveal">
@@ -1325,25 +1331,38 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
             >&lt;Jonh Carlo Tapire <span>/&gt;</span></a
           >
           <div class="social-links" data-socials>
-            <span class="social-placeholder" title="GitHub URL to be added"
+            <a
+              class="social-link"
+              href="https://github.com/jonhcarlotapire"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub (opens in a new tab)"
               ><i class="bi bi-github" aria-hidden="true"></i
-              ><span class="visually-hidden">GitHub URL to be added</span></span
-            ><span class="social-placeholder" title="LinkedIn URL to be added"
+            ></a>
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/jonh-carlo-tapire-53351a435/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn (opens in a new tab)"
               ><i class="bi bi-linkedin" aria-hidden="true"></i
-              ><span class="visually-hidden"
-                >LinkedIn URL to be added</span
-              ></span
-            ><span class="social-placeholder" title="Facebook URL to be added"
+            ></a>
+            <a
+              class="social-link"
+              href="https://www.facebook.com/jc.tapire71"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook (opens in a new tab)"
               ><i class="bi bi-facebook" aria-hidden="true"></i
-              ><span class="visually-hidden"
-                >Facebook URL to be added</span
-              ></span
-            ><span class="social-placeholder" title="Instagram URL to be added"
+            ></a>
+            <a
+              class="social-link"
+              href="https://www.instagram.com/jctapiree/?__d=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram (opens in a new tab)"
               ><i class="bi bi-instagram" aria-hidden="true"></i
-              ><span class="visually-hidden"
-                >Instagram URL to be added</span
-              ></span
-            >
+            ></a>
           </div>
         </div>
         <div class="footer-bottom">
@@ -1370,6 +1389,118 @@ Building something awesome...<span class="terminal-cursor" aria-hidden="true">â–
       <i class="bi bi-arrow-up" aria-hidden="true"></i
       ><span class="visually-hidden">Back to Top</span>
     </button>
+    <button
+      class="chat-launcher"
+      id="chat-launcher"
+      type="button"
+      aria-label="Ask Jonh's AI portfolio assistant"
+      aria-controls="portfolio-chat"
+      aria-expanded="false"
+      hidden
+    >
+      <i class="bi bi-chat-square-text" aria-hidden="true"></i
+      ><span>Ask about me</span><span class="chat-ai-badge mono">AI</span>
+    </button>
+    <dialog
+      class="portfolio-chat"
+      id="portfolio-chat"
+      aria-labelledby="chat-title"
+      aria-describedby="chat-disclaimer"
+    >
+      <header class="chat-header">
+        <span class="chat-avatar"
+          ><i class="bi bi-stars" aria-hidden="true"></i
+        ></span>
+        <div>
+          <h2 id="chat-title">Jonh's AI assistant</h2>
+          <p id="chat-connection" class="mono">OPENAI Â· PORTFOLIO Q&amp;A</p>
+        </div>
+        <button
+          type="button"
+          class="chat-icon-button"
+          id="chat-clear"
+          aria-label="Clear chat"
+        >
+          <i
+            class="bi bi-arrow-counterclockwise"
+            aria-hidden="true"
+          ></i></button
+        ><button
+          type="button"
+          class="chat-icon-button"
+          id="chat-close"
+          aria-label="Close chat"
+        >
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </header>
+      <div
+        class="chat-log"
+        id="chat-log"
+        role="log"
+        aria-label="Chat messages"
+        aria-live="polite"
+        aria-relevant="additions text"
+      ></div>
+      <div
+        class="chat-suggestions"
+        role="group"
+        aria-label="Suggested questions"
+      >
+        <button
+          type="button"
+          data-chat-question="Tell me about Jonh Carlo Tapire."
+        >
+          About Jonh</button
+        ><button
+          type="button"
+          data-chat-question="What technologies does Jonh use?"
+        >
+          Skills</button
+        ><button
+          type="button"
+          data-chat-question="Which projects has Jonh actually built?"
+        >
+          Projects</button
+        ><button type="button" data-chat-question="How can I contact Jonh?">
+          Contact
+        </button>
+      </div>
+      <div
+        class="chat-status"
+        id="chat-status"
+        role="status"
+        aria-live="polite"
+      ></div>
+      <div
+        id="chat-verification"
+        class="chat-verification"
+        role="group"
+        aria-label="Anti-bot verification"
+      ></div>
+      <form class="chat-form" id="chat-form">
+        <label class="visually-hidden" for="chat-input"
+          >Ask a question about Jonh</label
+        ><input
+          id="chat-input"
+          name="question"
+          type="text"
+          placeholder="Ask about Jonh..."
+          maxlength="600"
+          autocomplete="off"
+          required
+          aria-describedby="chat-disclaimer"
+        /><button type="submit" id="chat-send" aria-label="Send question">
+          <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        </button>
+      </form>
+      <p class="chat-disclaimer" id="chat-disclaimer">
+        AI can make mistakes. Only published portfolio facts are provided.
+        Messages go to Cloudflare and OpenAI; don't share private information.
+        <a href="mailto:jonhcarlotapire@gmail.com">Contact Jonh</a> to confirm
+        details.
+      </p>
+    </dialog>
     <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
     <!-- Bootstrap provides focus trapping, Escape support, and focus restoration. -->

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "python -m http.server 4173 --bind 127.0.0.1",
     "test": "playwright test",
-    "format": "prettier --write index.html css/style.css js/script.js playwright.config.cjs tests/redesign.spec.cjs README.md package.json"
+    "format": "prettier --write index.html css/style.css js/*.js worker/*.{mjs,md} playwright.config.cjs tests/{redesign,chatbot,worker}.spec.cjs README.md package.json"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
